@@ -1,0 +1,2081 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between; /* چپ و راست فاصله خودکار */
+  align-items: center;
+  flex-wrap: wrap; /* روی موبایل ردیف‌ها پایین برن */
+  padding: 1% 2%; /* فاصله نسبی به جای px */
+  background-color: #f5f5f5;
+  color: #111;
+  font-size: 0.7rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.topbar-section {
+  display: flex;
+  align-items: center;
+  gap: 2%; /* فاصله نسبی بین عناصر داخل هر بخش */
+}
+
+.topbar-section.center {
+  flex: 1;
+  justify-content: center;
+  min-width: 0%; /* محدودیت نسبی */
+}
+.topbar-section-right {
+    padding-left: 2.7vw;
+}
+.topbar-section-left {
+    padding-right: 3vw;
+}
+
+.arrow {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.rem 0.5rem;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.arrow:hover {
+  color: #000;
+}
+
+.promo-text {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%; /* درصد به جای px */
+  transition: opacity 0.4s ease;
+}
+
+.topbar-section-left,
+.topbar-section-right {
+  flex: 0 0 auto; /* اندازه خودشون رو حفظ کنن */
+  white-space: nowrap;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1% 2%;
+  }
+
+  .topbar-section {
+    justify-content: center;
+    gap: 5%;
+    margin: 4px 0;
+  }
+
+  .promo-text {
+    max-width: 90%;
+    font-size: 0.8rem;
+  }
+
+  .arrow {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-text {
+    font-size: 0.2rem;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .topbar-section-left,
+  .topbar-section-right {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
+
+
+@keyframes slideOutLeft {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideOutRight {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-out-left { animation: slideOutLeft 0.3s forwards; }
+.slide-out-right { animation: slideOutRight 0.3s forwards; }
+.slide-in-right { animation: slideInRight 0.5s forwards; }
+.slide-in-left { animation: slideInLeft 0.5s forwards; }
+.topbar-section-left {
+margin-right: 39px; 
+}
+
+
+
+/* 🔹 وقتی navbar سفید میشه */
+.navbar-lower.scrolled .nav-right .icon img,
+.navbar-lower:hover .nav-right .icon img {
+  filter: brightness(0) invert(0); /* مشکی */
+}
+
+/* 🔹 رنگ عدد در حالت navbar سفید */
+.navbar-lower.scrolled .nav-right .cart-count,
+.navbar-lower:hover .nav-right .cart-count {
+ background: black;
+  color: white;
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+  padding: 16px 4px;
+  transition: color 0.3s;
+  white-space: nowrap;
+
+}
+/* ==== ساختار اصلی ==== */
+
+.mega-menu {
+
+  display: flex;
+  justify-content: center;
+  top: 100%;
+   display: flex;
+  justify-content: center;
+  background: #fff;
+  display: none;
+  padding: 40px 0 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  z-index: 9999;
+ 
+}
+
+.nav-item:hover .mega-menu {
+  display: block;
+}
+
+/* کانتینر مرکزی مثل BYLT */
+.menu-content {
+  width: 100%;
+  max-width: 1320px;   /* دقیقا اندازه BYLT */
+  margin: 0 auto;
+  display: flex;
+  
+  flex-direction: column;
+  height: 40px;
+}
+
+/* ==== ستون‌ها ==== */
+.menu-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.4fr; 
+  /* عکس = 1.4 برابر یک ستون → درست مثل BYLT */
+  column-gap:80px;
+  align-items: start;
+  padding-bottom: 40px;
+  margin-top: -130px;
+  column-gap: 76px !important;  /* افزایش فاصله بین ستون‌ها */
+    
+}
+.menu-col ul li {
+  white-space: nowrap;
+  margin-bottom: 20px; /* فاصله بین هر آیتم */
+}
+
+@media (min-width: 1800px) {
+
+  .menu-content {
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    transform: translateX(-100px); /* کشیدن کل محتوا به چپ */
+
+  }
+
+  /* بزرگ‌تر شدن ستون عکس برای صفحه‌های بزرگ */
+  .menu-columns {
+    grid-template-columns: repeat(4, 1fr) 550px !important;
+  }
+
+  /* کشیده شدن عکس بیشتر به راست */
+  .menu-image {
+    margin-right: -90px;
+    margin-top: -8px;
+  }
+ .menu-columns {
+    column-gap: 216px !important;  /* افزایش فاصله بین ستون‌ها */
+     margin-top: -100px;
+  }
+/* --- bottom bar fix for BOTH MEN & WOMEN --- */
+.mega-menu .menu-bottom-bar,
+.mega-menu .women-bottom-bar {
+  width: 100vw !important;
+  position: relative;
+  left: 57%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  margin-top: -280px !important;
+}
+
+/* فاصله متن داخل باکس */
+.mega-menu .menu-bottom-bar p,
+.mega-menu .women-bottom-bar p {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 150px !important;
+  flex-wrap: nowrap !important;
+}
+
+
+  .mega-menu {
+  max-height: 37vh !important;  /* نصف صفحه */
+  overflow-y: auto !important;   /* اسکرول عمودی */
+  overflow-x: hidden !important; /* اسکرول افقی حذف */
+}
+  /* یکسان‌سازی موقعیت هر سه گالری */
+  .kids-gallery,
+  .bundle-gallery,
+  .lastcall-gallery {
+    position: relative !important;
+    left: 50px !important;      /* فاصله از چپ ← هر سه برابر */
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 60px !important;
+  }
+
+  /* یکسان‌سازی اندازه عکس‌ها */
+  .kids-gallery img,
+  .bundle-gallery img,
+  .lastcall-gallery img {
+    width: 420px !important;
+    height: 240px !important;
+    object-fit: cover !important;
+   
+  }
+
+  /* قرارگیری نوشته‌ها روی عکس — برای همه یکسان */
+  .kids-gallery-1,
+  .kids-gallery-2,
+  .lastcall-menu .kids-gallery-1 {
+    position: absolute !important;
+    bottom: 130px !important;
+    left: 210px !important;      /* متن‌ها هم هم‌راستا با عکس‌ها */
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 400px !important;
+    font-size: 26px !important;
+    color: white !important;
+    pointer-events: none !important;
+  }
+  .ron-a{margin-left: 60px;}
+  .ron-b{margin-left: 40px;}
+}
+
+
+
+
+/* ==== متن و لیست ==== */
+
+.menu-col h4 {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.menu-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-col ul li {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.menu-col ul li:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* ==== عکس ستون پنجم ==== */
+
+.menu-image img {
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  border-radius: 6px;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* ==== نوار پایین دقیقا مثل BYLT ==== */
+
+.menu-bottom-bar {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 16px 0;
+  border-top: 1px solid #e5e5e5;
+margin-top: -280px;
+}
+
+.menu-bottom-bar p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+  flex-wrap: wrap;
+}
+
+.menu-bottom-bar p a {
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  padding: 4px 8px;
+  transition: .2s;
+}
+
+.menu-bottom-bar p a:hover {
+  background: #111;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.menu-bottom-bar p a:first-child {
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* ==== ریسپانسیو شبیه BYLT ==== */
+
+@media (max-width: 1400px) {
+  .menu-content {
+    max-width: 1150px;
+  }
+  .menu-columns {
+    column-gap: 50px;
+    grid-template-columns: repeat(4, 1fr) 350px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .menu-columns {
+    grid-template-columns: repeat(3, 1fr) 320px;
+  }
+}
+
+@media (max-width: 992px) {
+  .mega-menu {
+    padding: 20px;
+  }
+  .menu-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .menu-image img {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+ .menu-image img {
+    width: 100%;
+    margin-top: 25px;
+    height: 300px;
+  }
+
+/* حالت پیش‌فرض آیکون‌ها و cart count */
+.navbar-lower .nav-right .icon img {
+  filter: brightness(0) invert(1); 
+  transition: filter 0.3s ease;
+}
+
+.navbar-lower .nav-right .cart-count {
+  background: white;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.navbar-lower.scrolled .nav-right .icon img,
+.navbar-lower:hover .nav-right .icon img {
+  filter: brightness(0) invert(0);
+}
+
+.navbar-lower.scrolled .nav-right .cart-count,
+.navbar-lower:hover .nav-right .cart-count {
+  background: black;
+  color: white;
+}
+
+.nav-item:hover::after {
+  content: "";
+  position: absolute;
+  top:45px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: black;
+}
+
+
+
+
+.nav-item:hover .mega-menu,
+.nav-item.men:hover .mega-menu.men-menu,
+.nav-item.women:hover .mega-menu.women-menu {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.menu-content {
+  width: 100%;
+  max-width: 1400px; 
+  margin: 0 auto;
+  display: flex;
+  
+  flex-direction: column;
+  
+  
+}
+.mega-menu .menu-bottom-bar p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 52px;
+}
+
+
+
+
+
+
+/* گالری بچه‌ها */
+.kids-gallery
+
+ {
+  display: flex;
+  gap: 10px;
+}
+
+.kids-gallery img
+ {
+  width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+
+/* لوگو و ترازبندی صحیح */
+.nav-center { flex: 0 0 auto; display:flex; align-items:center; justify-content:center; }
+/* لوگو وسطی */
+.navbar-lower {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 20px 40px;
+  z-index: 9998;
+  background: transparent;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* چپ: منوها */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding-left: 20px;
+}
+
+/* لوگو وسط */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 38px;
+  margin: 0;
+}
+
+/* راست: آیکون‌ها */
+/* راست: آیکون‌ها */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;       /* فاصله بین آیکون‌ها */
+  /* right: 270px; ← حذف شد */
+  padding-right: 95px; /* فاصله از لبه صفحه کمتر کن، مثلا 50px */
+}
+
+
+
+
+.icon {
+  cursor: pointer;
+  position: relative;
+}
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+
+  color: white;
+  font-size: 10px;
+  border-radius: 50%;
+  padding: 6px 6px;
+}
+
+/* ======= وقتی اسکرول یا هاور میشه ======= */
+.navbar-lower.scrolled,
+.navbar-lower:hover {
+  background: white;
+  color: black;
+}
+
+/* ======= سرچ اوورلی ======= */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.97);
+  display: none;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.search-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.search-boxes input {
+  padding: 12px;
+  font-size: 16px;
+  width: 300px;
+}
+
+/* ======= پنل سبد خرید ======= */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background: white;
+  color: #111;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  transition: right 0.4s ease;
+  z-index: 10000;
+  padding: 20px;
+}
+.mmd{
+  position: absolute;
+  width: 100%;
+
+right: 0px;
+ border-top: 1px solid #ddd;   /* 🔹 خط بالا */
+  border-bottom: 1px solid #ddd;/
+}
+.cart-panel.open {
+  right: 0;
+}
+.mmd-2{
+  font-size: 20px;
+  font-family: sans-serif;
+ padding: 2px 20px;
+}
+#closeCart {
+  border: solid;
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  font-size:0px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mmd-3{display: flex; justify-content: center; margin-top: 80px; font-family: sans-serif; font-weight: bold;font-size: 13px;}
+.hero-fullscreen {
+  position: relative;
+}
+.box-h{ position: absolute; right: 0%; background-color: rgb(224, 224, 224);  width:100%; padding-bottom:0px; }
+.text-one{display: flex; justify-content: center; font-family: sans-serif; font-size: 34px; padding-top: 30px; position: relative; bottom: 20px;}
+.text-two{display: flex; justify-content: center; position: relative; bottom: 45px; font-family: sans-serif; font-weight: bold; font-size: 15px; margin-left: 2%;}
+.but-1{background: rgba(255, 255, 255, 0.3);
+  padding: 19px 55px; /* پدینگ متعادل‌تر */
+  display: flex;
+  justify-content: center; /* افقی وسط */
+  align-items: center;     /* عمودی وسط */
+  text-align: center;
+  border-left: 1px solid;  /* 👈 باریک‌تر */
+  border-right: 1px solid; /* 👈 باریک‌تر */
+ border-top: 2px solid rgb(117, 117, 117);
+  border-bottom: 2px solid rgb(97, 96, 96);
+white-space: nowrap;
+cursor: pointer;
+}
+
+.but-2 {
+ background: rgba(255, 255, 255, 0.3);
+  padding: 19px 58px; /* پدینگ متعادل‌تر */
+  display: flex;
+  justify-content: center; /* افقی وسط */
+  align-items: center;     /* عمودی وسط */
+  text-align: center;
+  border-left: 1px solid;  /* 👈 باریک‌تر */
+  border-right: 1px solid; /* 👈 باریک‌تر */
+ border-top: 2px solid rgb(117, 117, 117);
+  border-bottom: 2px solid rgb(97, 96, 96);
+white-space: nowrap;
+cursor: pointer;
+}
+.but-2:hover{
+  background-color: #000;
+  color: white;
+  border-color: #000;
+}
+.but-1:hover{
+  background-color: #000;
+  color: white;
+  border-color: #000;
+}
+.btc{margin-left:120px; position: relative; bottom: 20px; }
+/* سکشن عکس */
+.hero {
+  position: relative; /* تا عناصر داخلش بتونن با absolute موقعیت بگیرن */
+}
+
+.hero .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%; /* جای متن در وسط عمودی */
+  left: 50%; /* وسط افقی */
+  transform: translate(-50%, -50%); /* دقیق وسط قرار می‌گیره */
+  z-index: 2; /* بالاتر از عکس */
+  color: white;
+  font-size: 20px;
+  
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.mmt {
+  position: relative; /* 👈 زیر box-h قرار بگیره */
+  margin-top: 325px;   /* فاصله مناسب */
+
+  flex-direction: column;
+  
+
+}
+.boxing{width: 380px; height: 6px; background-color: #e4e2e2; border-radius: 15px; position: relative; bottom: 10px; right: 10px;}
+.text-of-one{display: flex; justify-content: center; font-size: 14px; font-family: sans-serif; font-weight: bold; } 
+.text-of-two{display: flex; justify-content: center; font-size: 14px; font-family: sans-serif; font-weight: bold; bottom: 10px; position: relative; }
+.text-end-4{margin-left: 386px; font-size: 12px; position: relative; bottom: 4px; font-weight: bold; font-family: sans-serif;}
+.box-end{  background-color: rgb(238, 238, 238); padding-top: 110px; border-radius: 6px;}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* ----- تنظیمات متغیر ارتفاع (بزن بالای فایل یا جایی که می‌بینی مناسب است) ----- */
+:root {
+  --topbar-h: 50px;   /* تنظیم کن اگر ارتفاع واقعی تو فرق داره */
+  --navbar-h: 90px;   /* تنظیم کن اگر ارتفاع navbar-lower تو فرق داره */
+}
+
+/* ----- منوهای تمام عرض برای Men و Women ----- */
+.mega-menu.men-menu,
+.mega-menu.women-menu {
+  position: fixed;           /* ثابت نسبت به viewport تا از چپ بچسبه */
+  top: calc(var(--topbar-h) + var(--navbar-h)); /* زیر تاپ‌بار + navbar */
+  left: 0;
+  width: 100vw;
+  height: 75vh;              /* یا 80vh — بر اساس خواستت تغییر بده */
+  background: #fff;
+  color: #111;
+  display: none;
+  padding: 32px 60px;        /* فاصلهٔ داخلی محتوا، اما خود المان چسبیده به چپ/راست */
+  box-sizing: border-box;
+  
+  z-index: 9999;
+  overflow: auto;
+}
+
+/* وقتی هاور یا باز میشه */
+.nav-item.men:hover .mega-menu.men-menu,
+.nav-item.women:hover .mega-menu.women-menu {
+  display: block;
+}
+
+/* ----- داخل منوی تمام عرض: ستون‌ها + تصویر سمت راست ----- */
+.mega-menu .columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ستون‌ها */
+.mega-menu .column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* تصویر کناری */
+.mega-menu .side-image {
+  width: 360px;
+  height: 100%;
+  object-fit: cover;
+
+  flex: 0 0 360px;
+}
+
+/* نوار پایین (banner) */
+.mega-menu .bottom-banner {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 14px 30px;
+  background: #f6f6f6;
+  text-align: center;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+/* والد هر سه باکس - بچسبه به صفحه */
+.mega-menu.kids-menu,
+.mega-menu.bundles-menu,
+.mega-menu.lastcall-menu {
+  position: fixed;        /* بچسبه به صفحه */
+  top: calc(var(--topbar-h) + var(--navbar-h));
+  left: 0;
+  width: 100vw;           /* کل عرض صفحه */
+  /* حذف فاصله داخلی */
+  margin: 0;
+  background: white;
+  z-index: 9999;
+  overflow-x: hidden;
+  display: none;          /* فقط وقتی هاور بشه نمایش داده بشه */
+}
+
+/* گالری‌های داخل باکس‌ها */
+
+
+.lastcall-gallery {
+  display: flex;
+          
+            /* کل عرض والد */
+      /* فاصله از لبه‌های صفحه */
+
+
+}
+
+.kids-gallery {
+position: relative;
+right: 130px;
+  display: flex;
+  justify-content: center; /* یا space-between اگه بخوای پخش شن */
+  align-items: center;
+  gap: 26px; /* فاصله بین عکس‌ها */
+  padding: 0;
+}
+
+.kids-gallery img {
+  width: 330px;   /* پهنا ثابت برای همه */
+  height: 180px;  /* ارتفاع ثابت برای همه */
+  object-fit: cover; /* عکس داخل قاب برش می‌خوره، کش نمیاد */
+
+}
+.lastcall-gallery {
+
+
+ margin-left: 30px;
+  gap: 26px; /* فاصله بین عکس‌ها */
+  padding: 0;
+}
+
+.lastcall-gallery img {
+  width: 330px;   /* پهنا ثابت برای همه */
+  height: 180px;  /* ارتفاع ثابت برای همه */
+  object-fit: cover; /* عکس داخل قاب برش می‌خوره، کش نمیاد */
+
+}
+.bundle-gallery {
+position: relative;
+right: 300px;
+  display: flex;
+  justify-content: center; /* یا space-between اگه بخوای پخش شن */
+  align-items: center;
+  gap: 26px; /* فاصله بین عکس‌ها */
+  padding: 0;
+}
+
+.bundle-gallery img {
+  width: 330px;   /* پهنا ثابت برای همه */
+  height: 180px;  /* ارتفاع ثابت برای همه */
+  object-fit: cover; /* عکس داخل قاب برش می‌خوره، کش نمیاد */
+
+}
+
+.kids-gallery-1 {
+position: relative;
+bottom: 100px;
+right: 120px;
+height: 0;
+font-size: 25px;
+  display: flex;
+  justify-content: center; /* یا space-between اگه بخوای پخش شن */
+  align-items: center;
+  gap: 260px; /* فاصله بین عکس‌ها */
+  padding: 0;
+  z-index: 999;
+  color: white;
+}
+
+.kids-gallery-2 {
+position: relative;
+bottom: 100px;
+right: 290px;
+height: 0;
+font-size: 25px;
+  display: flex;
+  justify-content: center; /* یا space-between اگه بخوای پخش شن */
+  align-items: center;
+  gap: 260px; /* فاصله بین عکس‌ها */
+  padding: 0;
+  z-index: 999;
+  color: white;
+}
+
+
+/* عکس‌ها */
+
+.bundle-gallery img,
+.lastcall-gallery img {
+  flex: 1;                 /* همه عکس‌ها هم‌اندازه */
+ 
+  height: auto;
+  object-fit: cover;
+
+  max-width: 25%; /* 👈 مثلا هر عکس 25٪ عرض کل */
+  height: auto;
+
+  transition: transform 0.3s ease;
+}
+
+
+
+ 
+:root {
+  --topbar-h: 50px;   /* ارتفاع Topbar */
+  --navbar-h: 90px;   /* ارتفاع Navbar-lower */
+}
+
+/* Men menu - کل صفحه */
+.mega-menu.men-menu {
+  position: fixed;
+  top: calc(var(--topbar-h) + var(--navbar-h));
+  width: 100vw;
+  height: 100vh; /* کل صفحه */
+  background: white;
+  padding:140px ;
+  border-radius: 0;
+  display: none;
+  z-index: 9999;
+  overflow: auto;
+ 
+}
+
+/* Women menu - کمتر از کل صفحه */
+.mega-menu.women-menu {
+  position: fixed;
+  top: calc(var(--topbar-h) + var(--navbar-h));
+  left: 0;
+
+  width: 100vw;
+  height: 75vh; /* کمتر از کل صفحه */
+  background: white;
+  padding: 0;
+    padding:140px ;
+  margin: 0;
+  border-radius: 0;
+  display: none;
+  box-sizing: border-box;
+  z-index: 9999;
+  overflow: auto;
+}
+.women-menu {
+  position: relative; /* اضافه کن تا bottom-bar داخلش محاسبه بشه */
+  padding-bottom: 60px; /* جا برای باکس پایین باز کن */
+}
+
+.women-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* نمایش منو هنگام هاور روی گزینه مربوطه */
+.nav-item.men:hover .mega-menu.men-menu,
+.nav-item.women:hover .mega-menu.women-menu {
+  display: block;
+}
+
+/* ستون‌ها و محتوا داخل منو */
+.mega-menu .columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ستون‌ها */
+.mega-menu .column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+
+.end{
+margin-left: 190px;
+
+  width: 1px;
+  height: 300px;
+  position: relative;
+  bottom: 310px;
+  background-color:rgb(175, 175, 175) ;
+}
+
+
+/* بقیه ستون‌ها و ردیف‌های بعدی */
+
+/* اعمال برای تمام عکس‌های صفحه */
+img {
+  border-radius: 0 !important;
+}
+/* کل باکس سرچ */
+.search-container {
+  width: 1350px;
+ position: relative;
+ bottom: 230px;
+  background-color: #000;
+  margin: 0 auto; /* وسط چین */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+.search-container input {
+  width: 70%; /* ← هرچقدر می‌خوای دراز باشه (می‌تونی بزاری 100%) */
+  max-width: 700px; /* ← حد نهایی عرض دلخواه */
+  padding: 9px 20px;
+  border-radius: 30px;
+  border: 1px solid #ffffff;
+  font-size: 16px;
+  background-color: #000;
+}
+.search-container input {
+  width: calc(100% - 200px); /* یعنی 100% منهای 200px فاصله چپ‌راست */
+}
+
+/* اینپوت سرچ */
+.search-input {
+  /* عرض فعلی */
+  max-width: 3000px; /* حداکثر عرض */
+  width: calc(100% - 50px);
+  border: none;
+  padding: 0 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+
+/* دکمه‌ها و متن زیر اینپوت */
+.search-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* متن سمت چپ دکمه‌ها */
+.search-text {
+  color: white;
+  font-size: 17px;
+  margin-right: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-left: 160px;
+ 
+}
+
+/* گروه دکمه‌ها */
+.buttons-group {
+  display: flex;
+  gap: 10px;
+
+}
+
+/* استایل دکمه‌ها */
+.search-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 16px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  
+}
+
+.search-btn:hover {
+  background-color: #444;
+  color: #fff;
+}
+.close-search {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1001;
+}
+.hero-button {
+ 
+   padding: 16px 58px;
+  border: none;
+  border-radius: 3px;
+color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 3px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0); 
+
+}
+.hero-button-gruop{
+  display: flex;
+  gap: 30px;
+   margin-left: 140px;
+   position: relative;
+   bottom: 30px;
+}
+.text-part{position: relative; top: 30px;}
+.image-row {
+  display: flex;
+  gap: 15px; /* 👈 فاصله بین عکس‌ها نصف شد */
+  margin: 40px 0;
+  overflow: hidden;
+  justify-content: flex-end; /* عکس‌ها سمت راست */
+}
+
+/* هر عکس */
+.image-item {
+  flex: 0 0 25%;
+  text-align: center;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 👈 نصف عکس آخر + کمی کمتر تا گروه بیاد چپ‌تر */
+.image-item:last-child {
+  margin-right: -15%; /* از 12.5% آوردیم پایین تا فاصله چپ کم شه */
+}
+
+/* متن */
+.image-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 3px;
+}.image-item {
+  flex: 0 0 27.5%; /* 👈 قبلاً 25% بود — بزرگ‌تر شد */
+}
+
+.image-item img {
+  width: 100%;   /* 👈 از کناره‌ها بزرگ‌تر */
+  height: auto;  /* ارتفاع متناسب زیاد میشه */
+}
+
+.hero-button-1 {
+ 
+   padding: 16px 58px;
+  border: none;
+  border-radius: 3px;
+color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 3px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0); 
+
+}
+.hero-button-gruop-1{
+  display: flex;
+  gap: 30px;
+   margin-left: 90px;
+   position: relative;
+   top: 20px;
+}
+.text-Releases{position: relative; right: 30px; top: 20px;}
+.text-part-1{position: relative; top: 30px;}
+.hero-text-1 {
+  position: absolute;
+  top: 50%; /* جای متن در وسط عمودی */
+  left: 15%; /* وسط افقی */
+  transform: translate(-50%, -50%); /* دقیق وسط قرار می‌گیره */
+  z-index: 2; /* بالاتر از عکس */
+  color: white;
+  font-size: 20px;
+  
+  font-family: sans-serif;
+  text-align: center;
+}
+.photo-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* همیشه ۴ ستون ثابت */
+  gap: 24px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.photo-section img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.video-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 4.7% 3%;
+  gap: 50px;
+  flex-wrap: wrap; /* موبایل */
+}
+
+.video-text {
+  flex: 1;
+  color: black;
+  font-family: sans-serif;
+  max-width: 500px;       /* محدودیت حرفه‌ای برای متن */
+}
+
+.video-text h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+}
+
+.video-text .underline {
+  width: 150px;
+  height: 3px;
+  background-color: black;
+  margin: 0 0 25px 0;
+}
+
+.video-text p {
+  font-size: 0.9rem;
+  margin: 0 0 30px 0;
+  line-height: 1.5;
+}
+
+.video-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.video-btn {
+  padding: 16px 75px;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.video-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.video-container {
+  flex: -1.9;
+}
+
+.video-container video {
+  width: 107%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+.hero-button-1:hover{background-color: white; color: #000; font-weight: bold;}
+.hero-button:hover{background-color: white; color: #000; font-weight: bold;}
+.triple-section {
+  display: flex;
+  gap: 20px;
+  width: 98%;
+  margin: 10px auto;
+}
+.triple-section img {
+  aspect-ratio: 12 / 9; /* یا 4 / 3 */
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+
+.small-img {
+  flex: 1;
+  overflow: hidden;
+}
+
+.left-large,
+.right-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.left-large {
+  flex: 1;
+}
+
+.right-double {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-large img,
+.right-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  color: white;
+}
+
+.overlay h3 {
+  font-size: 30px;
+  margin: 0 0 20px;
+  font-family: sans-serif;
+}
+
+.overlay p {
+  font-size: 24px;
+  margin: 0 0 12px;
+  font-family: sans-serif;
+}
+
+.overlay button {
+    padding: 16px 58px;
+  border: none;
+   margin: 0 0 26px;
+  border-radius: 3px;
+color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 3px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0); 
+}
+
+.overlay button:hover {
+  background: white;
+  color: black;
+ 
+}
+.overlay-1 {
+  position: absolute;
+  top: 50%;          /* 👈 وسط عمودی */
+  right: 70px;       /* 👈 سمت راست */
+  transform: translateY(-50%); /* 👈 دقیقاً وسط */
+  color: white;
+  text-align: right; /* 👈 متن راست‌چین */
+}
+
+
+.overlay-1 h2{
+  font-size: 36px;
+  margin: 0 0 20px;
+  font-family: sans-serif;
+}
+
+.overlay-1 p {
+  font-size: 19px;
+  margin: 0 0 12px;
+  font-family: sans-serif;
+}
+
+.overlay-1 button {
+    padding: 16px 58px;
+  border: none;
+   margin: 0 0 26px;
+  border-radius: 3px;
+color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 3px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0); 
+}
+
+.overlay-1 button:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+/* ====== ساختار اصلی ====== */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.carousel-viewport {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+
+/* ====== کارت‌ها ====== */
+.product-card {
+  flex: 0 0 25%;        /* دسکتاپ = چهار کارت */
+  box-sizing: border-box;
+  padding: 12px;
+  position: relative;
+}
+
+/* ====== عکس‌ها ====== */
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* هاور معمولی روی باکس */
+.img-wrapper:hover .hover-img {
+  opacity: 1;
+}
+
+/* وقتی دکمه مشکی هاور هست، تصویر اصلی نمایش داده می‌شود */
+.img-wrapper.hover-force-main .main-img {
+  opacity: 1 !important;
+}
+
+.img-wrapper.hover-force-main .hover-img {
+  opacity: 0 !important;
+}
+
+/* دکمه همیشه معلوم باشه */
+.img-wrapper .hover-cta {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 18px 80px;
+  border: none;
+  border-radius: 6px;
+  opacity: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* دکمه روی هاور باکس یا هاور دکمه دیده میشه */
+.img-wrapper:hover .hover-cta,
+.img-wrapper.hover-force-main .hover-cta {
+  opacity: 1;
+}
+
+
+
+
+
+/* ====== CTA روی Hover ====== */
+.hover-cta {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 14px 55px;
+  border: none;
+  border-radius: 6px;
+  opacity: 0;
+  transition: 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.heart {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ====== اطلاعات محصول ====== */
+.product-info {
+  margin-top: 12px;
+  font-family: sans-serif;
+}
+
+.product-info div {
+  margin-bottom: 8px;
+  opacity: 0.85;
+  font-weight: bold;
+}
+
+.sale {
+  color: red;
+  font-size: 14px;
+}
+
+.name {
+  color: black;
+  font-size: 17px;
+}
+
+.price .old {
+  color: gray;
+  margin-left: 6px;
+  text-decoration: line-through;
+}
+
+.note {
+  color: #888;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ====== رنگ‌ها ====== */
+.color-swatches {
+  display: flex;
+  gap: 6px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* ====== دکمه‌های اسلایدر ====== */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+
+.carousel-btn:hover {
+  background: #eee;
+}
+
+
+/* ===========================
+      ریسپانسیو حرفه‌ای
+   =========================== */
+
+/* تبلت — ۲ کارت */
+@media (max-width: 992px) {
+  .product-card {
+    flex: 0 0 50%;
+  }
+  .img-wrapper {
+    height: 330px;
+  }
+}
+
+/* موبایل — ۱ کارت کامل */
+@media (max-width: 600px) {
+  .product-card {
+    flex: 0 0 100%;
+  }
+
+  .img-wrapper {
+    height: 300px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+.coastal-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+/* عکس بالا */
+.top-banner {
+  position: relative;
+  width: 99.5%;
+  height:  600px;
+  overflow: hidden;
+}
+
+.top-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+
+
+
+.glass-btn {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+.bottom-gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* همیشه دو ستون */
+  gap: 0px 40px; /* فاصله عمودی و افقی */
+  padding: 0 20px 40px;
+  box-sizing: border-box;
+}
+
+/* هر آیتم گالری */
+.gallery-item {
+  width: 100%; /* میذاره داخل گرید خودکار پر شه */
+  max-width: 1130px; /* اندازه منطقی که خراب نشه */
+}
+
+/* عکس‌ها */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+
+/* بلاک متن */
+.text-block {
+  text-align: left;
+  margin-top: 12px;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.text-block h3 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.text-block p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #444;
+  margin: 10px 0 0;   /* فاصله بین h3 و متن */
+}
+
+/* ریسپانسیو موبایل */
+@media (max-width: 600px) {
+  .gallery-item {
+    width: 100%;
+  }
+}
+
+.hero-new {
+  width: 100%;
+}
+
+/* عکس اصلی */
+.hero-new__image {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+.hero-new__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* متن وسط تصویر */
+.hero-new__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+/* متن‌ها */
+.hero-new__title {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  margin: 0 0 10px 0;
+}
+
+.hero-new__subtitle {
+  font-size: 3.5rem;
+  margin: 0 0 25px 0;
+  font-family: sans-serif;
+}
+
+/* ردیف دکمه‌ها */
+.hero-new__buttons {
+  display: flex;
+  gap: 32px; /* فاصله بین دکمه‌ها */
+  justify-content: center;
+}
+
+/* استایل دکمه‌ها */
+.hero-new__button {
+  padding: 14px 70px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
+  color: #fff;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* هاور */
+.hero-new__button:hover {
+  background: #fff;
+  color: #000;
+}
+.footer {
+  background: #e6e6e6;
+  padding: 60px 50px 30px;
+  font-family: 'Poppins', sans-serif;
+  color: #111;
+ 
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0px;
+ 
+}
+
+
+
+.footer-column h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column; /* لینک‌ها زیر هم */
+  align-items: flex-start; /* همه لینک‌ها از چپ تراز باشند */
+  gap: 10px; /* فاصله عمودی بین لینک‌ها */
+   gap: 17px;
+}
+
+.footer-column a {
+  position: relative;
+  display: block;
+  color: #525050;
+  text-decoration: none;
+  font-size: 11px;
+  bottom: 12px;
+}
+
+.footer-column a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.footer-column a:hover::after {
+  width: 100%; /* فقط تا انتهای متن لینک */
+}
+
+
+.footer-column a:hover {
+  color: #000;
+}
+
+
+
+
+
+/* مهم: بهتره در ابتدای CSS این را تعریف کنی */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* جلوگیری از تغییر اندازه با padding/border */
+}
+
+/* والد (حذف border قبلی اگر بود) */
+.footer-input {
+  display: flex;
+  align-items: center;
+  gap: 0;           /* یا gap: 8px اگر خواستی فاصله باشه */
+  width: 330px;     /* اگر می‌خواهی کل باکس ثابت باشه - مقدار را تغییر بده */
+  /* یا به جای width از max-width استفاده کن: max-width: 100%; */
+  overflow: visible; /* اجازه بده دکمه نمایش داده شود */
+  margin-top: -18px;
+}
+
+/* اینپوت */
+.footer-input input {
+  flex: 1 1 auto;        /* به صورت انعطاف‌پذیر رشد می‌کنه */
+  min-width: 0;          /* مهم: اجازه می‌ده input کوچک شود بدون اینکه دکمه را ببلعد */
+  padding: 15px 14px;
+  border: 2px solid #ccc; /* حالت عادی */
+  outline: none;
+  font-size: 13px;
+  background: #fff;
+  color: #000;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+
+}
+
+/* وقتی روی input کلیک می‌کنه فقط input تغییر کنه */
+.footer-input input:focus {
+  border-color: #000;
+  box-shadow: none; /* یا اگر خواستی اندکی */
+border-radius: 4px;
+}
+.footer-input button:hover {
+  animation: softBeat 0.35s ease-out 1;
+}
+
+@keyframes softBeat {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.04); /* یکم بزرگ شه */
+  }
+  100% {
+    transform: scale(1); /* برگرده آروم */
+  }
+}
+
+
+/* دکمه: اندازه ثابت یا پَدینگ بزرگ */
+.footer-input button {
+  flex: 0 0 100px;   /* ثابت نگه‌داشتن پهنا: flex-grow:0 flex-shrink:0 width:100px */
+ padding: 12px 28px;
+  width: 100px;
+  height: 49px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+ 
+  padding: 10px 12px;
+}
+
+/* جلوگیری از تاثیر دادن والد یا دکمه هنگام focus روی input */
+/* اطمینان حاصل کن هیچ selector دیگری مثل .footer-input:focus یا .footer-input:focus-within آن را تغییر ندهد */
+
+
+
+
+.footer-bottom {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-icons i {
+  font-size: 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-icons i:hover {
+  color: #555;
+}
+
+.footer-currency select {
+  border: 0.5px solid #cecdcd;
+  border-radius: 20px;
+  padding: 2px 12px;
+  background: #fff;
+  cursor: pointer;
+}
+.text-want{position: relative; bottom: 20px; font-size: 12px; color: #444;}
+/* From Uiverse.io by vinodjangid07 */ 
+.card {
+  width: fit-content;
+  height: fit-content;
+margin-top: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* جلوگیری از شکستن ستون‌ها */
+    z-index:999;
+    gap: 120px;
+
+  }
+
+  .footer-column:last-child {
+    margin-left: auto; /* ستون آخر را به سمت راست هدایت می‌کند */
+  }
+}
+
+
+.brand-circle {
+  position: fixed;       /* همیشه روی صفحه باشه */
+  bottom: 20px;          /* فاصله از پایین صفحه */
+  right: 20px;           /* فاصله از راست صفحه */
+  width: 60px;           /* قطر دایره */
+  height: 60px;
+  border-radius: 50%;    /* دایره بشه */
+  background-color: #000; /* رنگ دلخواه */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* سایه برای جلوه بهتر */
+  z-index: 9999;         /* همیشه روی بقیه المان‌ها */
+  transition: transform 0.2s ease;
+}
+
+

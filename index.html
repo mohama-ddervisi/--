@@ -22,7 +22,285 @@
 </div>
 
 <nav class="navbar-lower">
+ <div class="hamburger" onclick="openMenu()">☰</div>
+
+<div class="slide-menu" id="slideMenu">
+  <div class="close-btn" onclick="closeMenu()">×</div>
+ <div class="logo-2">
+ <div class="logo-2">BYLT</div>
+ <div class="mini-search">
+  <a href="#mySearchSection" class="mini-search-btn">
+    <img src="magnifying-glass-solid-full.svg" width="30px" class="det"> <span></span>
+  </a>
+  <input type="text" class="mini-search-input" placeholder="Search...">
+  <div class="header-icons">
+    <img src="user-solid-full.svg" alt="icon1" class="icon-img">
+    <img src="heart-regular-full.svg" alt="icon2" class="icon-img">
+    <img src="cart-shopping-solid-full.svg" alt="icon3" class="icon-img">
+</div>
+
+</div>
+
+  </div>
+ <div class="mobile-tabs">
+
+  <div class="tab-header">
+    <div class="tab-btn active" data-tab="tab-men">MEN</div>
+    <div class="tab-btn" data-tab="tab-women">WOMEN</div>
+    <div class="tab-btn" data-tab="tab-kids">KIDS</div>
+    <div class="tab-btn" data-tab="tab-bundles">BUNDLES</div>
+    <div class="tab-btn" data-tab="tab-lastcall">LASTCALL</div>
+  </div>
+
+  <div class="tab-content">
+
+    <!-- TAB 1 — MEN -->
+    <div id="tab-men" class="tab active">
+
+      <!-- لیست 4 تایی با + -->
+      <div class="accordion">
+
+        <div class="acc-item">
+          <p class="acc-title">Featured</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p>
+        </div>
+
+        <div class="acc-item">
+          <p class="acc-title">Fall Collection</p>
+          <span class="acc-toggle">+</span>
+        </div>
+       <div class="acc-body">
+          <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p>
+        
+</div>
+
+        <div class="acc-item">
+          <p class="acc-title">Best Sellers</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"> <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p></div>
+
+        <div class="acc-item">
+          <p class="acc-title">New Releases</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"> <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p></div>
+
+      </div>
+
+      <!-- عکس کوچک با متن و دکمه -->
+      <div class="mini-banner">
+        <img src="lc-dsktp.webp" alt="">
+        <div class="mini-banner-info">
+          <p class="text-u-2"> The Season’s Top Stylesfor</p>
+          <p class="text-u-2">BYLT Holiday '25 Catalog</p>
+          <button class="mini-btn">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- متن ریز پایین -->
+      <p class="small-text">DISCOVER</p>
+
+      <!-- چهار متن بولد -->
+      <div class="bold-links">
+        <p>BYLT+ Rewards</p>
+        <p>Warm Layer Styles</p>
+        <p>RETAIL LOCATIONS</p>
+        <p>Athletes & Partners</p>
+      </div>
+
+    </div>
+
+    <!-- TAB 2 — WOMEN (همین ساختار مثل MEN — فقط محتواش عوض میشه) -->
+    <div id="tab-women" class="tab">  
+       <!-- لیست 4 تایی با + -->
+      <div class="accordion">
+
+        <div class="acc-item">
+          <p class="acc-title">Featured</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p>
+        </div>
+
+        <div class="acc-item">
+          <p class="acc-title">Fall Collection</p>
+          <span class="acc-toggle">+</span>
+        </div>
+       <div class="acc-body">
+          <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p>
+        
+</div>
+
+        <div class="acc-item">
+          <p class="acc-title">Best Sellers</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"> <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p></div>
+
+        <div class="acc-item">
+          <p class="acc-title">New Releases</p>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"> <p>Holiday Countdown</p>
+          <p>Holiday Gift Guide</p>
+          <p>Best Sellers</p>
+          <p>New Releases</p>
+          <p>Coastal Collection</p>
+          <p>Shop All</p></div>
+
+      </div>
+
+      <!-- عکس کوچک با متن و دکمه -->
+      <div class="mini-banner">
+        <img src="lc-dsktp.webp" alt="">
+        <div class="mini-banner-info">
+          <p class="text-u-2"> The Season’s Top Stylesfor</p>
+          <p class="text-u-2">BYLT Holiday '25 Catalog</p>
+          <button class="mini-btn">Shop Now</button>
+        </div>
+      </div>
+
+      <!-- متن ریز پایین -->
+      <p class="small-text">DISCOVER</p>
+
+      <!-- چهار متن بولد -->
+      <div class="bold-links">
+        <p>BYLT+ Rewards</p>
+        <p>TRAVEL BAGS</p>
+        <p>SUNGLASSES SALE</p>
+        <p>Athletes & Partners</p>
+          <p>RETAIL LOCATIONS</p>
+      </div>
+
+    </div>
+
+    </div>
+
+    <!-- TAB 3 — KIDS -->
+    <div id="tab-kids" class="tab">
+
+      <div class="acc-item kids-toggle">
+        <p class="acc-title"></p>
+        <span class="acc-toggle">+</span>
+      </div>
+      <div class="acc-body">متن دلخواه اینجا</div>
+
+      <div class="kids-row-images">
+        <div class="kids-img-box">
+          <img src="mobile-nav-boys.webp">
+          <p>BOYS</p>
+        </div>
+        <div class="kids-img-box">
+          <img src="mobile-nav-girls.webp">
+          <p>GIRLS</p>
+        </div>
+      </div>
+
+      <div class="kids-large-img">
+        <img src="mobile-nav-girls.webp">
+        <p>KID'S COLLECTION</p>
+        <button class="mini-btn">Shop Now</button>
+      </div>
+
+    </div>
+
+    <!-- TAB 4 — BUNDLES -->
+    <div id="tab-bundles" class="tab">
+      <div class="bundle-row">
+        <div class="bundle-box">
+          <img src="2packs-desktop-Pant_1.webp">
+          <p>2 & 3 PACKS</p>
+        </div>
+        <div class="bundle-box">
+          <img src="5packs_8ae048b2-f721-49ee-8641-030aa35de081.webp">
+          <p>5 PACKS</p>
+        </div>
+        
+      </div>
+      
+ <!-- این کانتینر برای carousel داخل منو -->
+  <div id="mobile-carousel-container"></div>
+      <!-- سکشن جاوااسکریپتی که گفتی -->
+      <div id="bundle-js-section">
+        <!-- هر چی باید ظاهر بشه اینجا می‌ذاریم -->
+      </div>
+    </div>
+
+    <!-- TAB 5 — LASTCALL (همانند TAB 3) -->
+    <div id="tab-lastcall" class="tab">
+     
+      <div class="acc-item kids-toggle">
+        <p class="acc-title"></p>
+
+      </div>
+      <div class="acc-body">متن دلخواه اینجا</div>
+
+      <div class="kids-row-images">
+        <div class="kids-img-box">
+          <img src="mode.webp">
+          <p>BOYS</p>
+        </div>
+        <div class="kids-img-box">
+          <img src="Women_s_SS.webp">
+          <p>GIRLS</p>
+        </div>
+      </div>
+
+      <div class="kids-large-img">
+        <img src="mobile-nav-girls.webp">
+        <p>KID'S COLLECTION</p>
+        <button class="mini-btn">Shop Now</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
  <div class="nav-left">
+
   <div class="nav-item">MEN   <div class="mega-menu men-menu">
       <div class="menu-content">
         <div class="menu-columns">
@@ -228,6 +506,7 @@
 </nav>
 
 <!-- ======= سرچ اوورلی ======= -->
+ <section id="mySearchSection">
 <div id="searchOverlay" class="search-overlay">
   <button id="closeSearch" class="close-search">✖</button>
   <div class="search-boxes">
@@ -247,6 +526,7 @@
   </div>
   </div>
 </div>
+</section>
 <section class="hero">
   <img src="photo-15005238680356-.avif" alt="Hero Image" class="hero-img">
 <div class="hero-text">
@@ -343,7 +623,9 @@
       </div>
     </div>
   </div>
+ 
 </section>
+ <div class="carousel-container" id="desktop-carousel">
 <div class="carousel-container">
   <button class="carousel-btn left">&lt;</button>
   <div class="carousel-viewport">
@@ -521,6 +803,7 @@
     </div>
     <button  class="carousel-btn right">&gt;</button>
 </div>
+</div>
 <section class="coastal-section">
 
 
@@ -671,6 +954,7 @@
 </footer>
 <div class="brand-circle">B</div>
 
+
     <script src="script.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -766,6 +1050,82 @@ document.addEventListener('DOMContentLoaded', () => {
   leftBtn.addEventListener('click', scrollLeft);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger-icon');
+  const menu = document.querySelector('.menu-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+  const accordions = document.querySelectorAll('.accordion-toggle');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    menu.classList.remove('active');
+  });
+
+  accordions.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.closest('.menu-option').querySelector('.option-content');
+      content.classList.toggle('active');
+      toggle.textContent = content.classList.contains('active') ? '-' : '+';
+    });
+  });
+});
+function openMenu() {
+  document.getElementById("slideMenu").classList.add("show");
+}
+function closeMenu() {
+  document.getElementById("slideMenu").classList.remove("show");
+}
+
+// تب‌ها
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".tab-btn.active")?.classList.remove("active");
+    btn.classList.add("active");
+
+    document.querySelector(".tab.active")?.classList.remove("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  });
+});
+
+
+// آکاردئون
+document.querySelectorAll(".acc-item").forEach(item => {
+  item.addEventListener("click", () => {
+    let body = item.nextElementSibling;
+    let sign = item.querySelector(".acc-toggle");
+
+    body.classList.toggle("active");
+
+    if (body.classList.contains("active")) {
+      sign.textContent = "-";
+    } else {
+      sign.textContent = "+";
+    }
+  });
+});
+const desktopCarousel = document.getElementById('desktop-carousel');
+const mobileContainer = document.getElementById('mobile-carousel-container'); // داخل گزینه چهارم
+const hamburger = document.querySelector('.hamburger');
+const closeBtn = document.querySelector('.close-btn');
+const originalParent = desktopCarousel.parentNode;
+const nextSibling = desktopCarousel.nextElementSibling;
+
+hamburger.addEventListener('click', () => {
+  // وقتی منو باز شد، carousel به داخل گزینه چهارم منتقل شود
+  mobileContainer.appendChild(desktopCarousel);
+});
+
+closeBtn.addEventListener('click', () => {
+  // وقتی منو بسته شد، carousel به محل اصلی برگردد
+  if (nextSibling) {
+    originalParent.insertBefore(desktopCarousel, nextSibling);
+  } else {
+    originalParent.appendChild(desktopCarousel);
+  }
+});
 
 </script>
 

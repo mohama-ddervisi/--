@@ -1,6 +1,6 @@
 const messages = [
   "30% OFF SITEWIDE - Early Access Starts Now!",
-  "Get Your Holiday Gifts Early — Shop the BYLT Collection!"
+  "Get Your Holiday — Shop the BYLT Collection!"
 ];
 
 const promoText = document.getElementById("promoText");

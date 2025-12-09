@@ -3233,7 +3233,8 @@ white-space: nowrap;
   .footer-column {
     width: 100%;
     margin-bottom: 0px;
-   
+  position: relative;
+  right: 30px;
   }
 
   .footer-column h4 {

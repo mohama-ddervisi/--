@@ -1670,9 +1670,9 @@ color: white;
 
 .glass-btn {
   backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.25);
+  background: rgb(255, 255, 255);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.021);
   padding: 10px 25px;
   border-radius: 30px;
   cursor: pointer;
@@ -1745,7 +1745,7 @@ color: white;
 .hero-new__image {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 550px;
   overflow: hidden;
 }
 
@@ -1783,11 +1783,12 @@ color: white;
   display: flex;
   gap: 32px; /* فاصله بین دکمه‌ها */
   justify-content: center;
+   flex-direction: column;
 }
 
 /* استایل دکمه‌ها */
 .hero-new__button {
-  padding: 14px 70px;
+  padding: 14px 60px;
   background: rgba(255, 255, 255, 0.05);
   border: 2.5px solid rgba(255, 255, 255, 0.95);
   color: #fff;
@@ -2832,5 +2833,524 @@ margin-top: -40px;
 
 }
 #slideMenu {
-  margin-top: 50px;   /* به اندازه ارتفاع تاپ‌بار */
+  margin-top:55px;   /* به اندازه ارتفاع تاپ‌بار */
+}
+/* --- ریسپانسیو برای موبایل و تبلت (تا عرض 900px) --- */
+@media (max-width: 900px) {
+
+  .hero {
+    position: relative;
+    height: 650px; /* عکس بلندتر */
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 36px !important;
+    line-height: 1.2;
+  }
+
+  .text-part {
+    font-size: 18px;
+    margin-bottom: 10px;
+    top: 0 !important;
+  }
+
+  .hero-button-gruop {
+    margin: 0 !important;
+    position: static;
+    flex-direction: column;   /* دکمه‌ها زیر هم */
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px;
+  }
+
+  .hero-button {
+    width: 70%; /* دکمه پهن‌تر و شکیل‌تر */
+    padding: 14px 0;
+    font-size: 18px;
+  }
+}
+/* ریسپانسیو برای موبایل و تبلت */
+@media (max-width: 900px) {
+
+  .image-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;      /* اسکرول افقی */
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory; /* اسکرول نرم و منظم */
+ 
+  }
+
+  /* مخفی کردن اسکرول‌بار */
+  .image-row::-webkit-scrollbar {
+    display: none;
+  }
+  .image-row {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .image-item {
+    flex: 0 0 40%;  /* عکس‌ها بزرگ‌تر و قابل اسکرول */
+    scroll-snap-align: start;
+  }
+
+  .image-item img {
+    width: 100%;
+    height: 200px;      /* ارتفاع ثابت اما بدون کشیدگی */
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .image-item p {
+    font-size: 15px;
+    margin-top: 6px;
+  }
+}
+/* ریسپانسیو موبایل */
+@media (max-width: 768px) {
+
+  .hero {
+  position: relative;
+  height: 500px; /* ارتفاع دلخواه */
+  overflow: hidden; /* عکس اضافی بریده می‌شه */
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+  .hero-text-1 {
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  .text-part-1 {
+    font-size: 20px;
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .text-Releases {
+    font-size: 32px;
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  /* پنهان کردن دکمه دوم */
+  .hero-button-gruop-1 button:last-child {
+    display: none !important;
+  }
+
+  /* تنظیم دکمه باقی‌مانده */
+  .hero-button-1 {
+    width: 80%;       /* دکمه دراز شد */
+    padding: 18px 0;
+    font-size: 18px;
+  }
+
+  .hero-button-gruop-1 {
+    margin: 0 auto;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    position: static;
+  }
+}
+
+/* پیش‌فرض: مخفی برای دسکتاپ */
+.custom-section {
+  display: none; 
+}
+
+/* نمایش روی موبایل و تبلت */
+@media (max-width: 1024px) {
+  .custom-section {
+    display: block; 
+  }
+  .product-card {
+  display: flex;
+  flex-direction: column; /* ست کردن محتوا به صورت ستونی */
+}
+
+}
+
+ 
+
+/* تبلت: 768px تا 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product-card {
+    flex: 0 0 48%; /* دو تا در ردیف */
+    margin-bottom: 15px;
+  }
+  .product-info {
+    margin-top: 10px; /* حتما زیر عکس */
+  }
+}
+
+/* موبایل: کمتر از 768px */
+@media (max-width: 767px) {
+  .product-card {
+    flex: 0 0 100%; /* یک در ردیف */
+    margin-bottom: 15px;
+  }
+  .product-info {
+    margin-top: -50px; /* زیر عکس باشه */
+  }
+
+}
+
+/* تنظیم اندازه متن و رنگ‌ها برای موبایل و تبلت */
+.product-info .sale,
+.product-info .name,
+.product-info .price,
+.product-info .note {
+  font-size: 14px;
+}
+
+.color-swatches {
+  margin-top: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+  
+
+/* ریسپانسیو تبلت: دو تا در یک ردیف */
+@media (max-width: 1024px) {
+  .photo-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ریسپانسیو موبایل: دو تا در یک ردیف */
+@media (max-width: 767px) {
+  .photo-section {
+  
+    gap: 15px; /* فاصله کمتر بین عکس‌ها */
+  }
+  .photo-section img {
+    /* کمی کوتاه‌تر برای موبایل */
+  }
+}
+@media (max-width: 1024px) {
+  .video-section {
+    flex-direction: column; /* ویدیو بالا، متن پایین */
+  }
+
+  .video-text {
+    order: 2; /* متن پایین قرار می‌گیره */
+   
+  }
+
+  .video-container {
+    order: 1; /* ویدیو بالا قرار می‌گیره */
+  }
+
+  /* مخفی کردن دکمه دوم */
+  .video-btn:last-child {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .triple-section {
+    flex-direction: column; /* همه زیر هم */
+    gap: 20px;
+  }
+
+  .right-double {
+    flex-direction: column; /* تصاویر راست هم زیر هم قرار بگیرن */
+  }
+
+  .overlay {
+    left: 10px;   /* کمی فاصله از کناره‌ها */
+    bottom: 10px; /* فاصله پایین از عکس */
+  }
+
+  .overlay h3 {
+    font-size: 24px; /* متن کمی کوچکتر برای موبایل */
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .overlay button {
+    padding: 12px 40px; /* دکمه کوچک‌تر */
+    font-size: 14px;
+  }
+}
+/* ===== ریسپانسیو ===== */
+@media (max-width: 1024px) { /* تبلت */
+  .overlay-1 {
+    position: absolute;
+    top: 50%;           /* وسط عمودی */
+    left: 50%;          /* وسط افقی */
+    right: auto;
+    transform: translate(-50%, -50%); /* دقیقاً وسط */
+    text-align: center;
+  }
+.top-banner {
+  position: relative;
+  width: 100%;
+  max-height: 400px; /* حداکثر ارتفاع سکشن */
+  overflow: hidden; /* جلوگیری از کشیدگی محتوا */
+}
+
+.top-banner img {
+  width: 100%;
+  height: 0;
+  height: auto; /* تصویر خودش ارتفاع مناسب بگیرد */
+  display: block;
+}
+
+.top-banner .overlay-1 {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); /* وسط دقیق متن */
+  text-align: center;
+}
+
+  .overlay-1 p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .overlay-1 h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .overlay-1 button {
+    padding: 16px 70px;
+  }
+
+  .top-banner img {
+    height: 400px; /* ارتفاع مناسب برای تبلت */
+  }
+}
+
+@media (max-width: 767px) { /* موبایل */
+  .overlay-1 {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   text-overflow: ellipsis;
+white-space: nowrap;
+  }
+
+  .overlay-1 p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .overlay-1 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+
+  }
+
+  .overlay-1 button {
+    padding: 14px 80px;
+  }
+
+  .top-banner img {
+    height: 350px; /* کوتاه‌تر برای موبایل */
+  }
+}
+
+/* اول همه جا مخفی */
+.custom-section-mobile {
+  display: none;
+}
+
+/* موبایل و تبلت */
+@media (max-width: 1024px) { /* تبلت و موبایل */
+  .custom-section-mobile {
+    display: block;
+  }
+}
+
+/* فقط موبایل (اختیاری) */
+@media (max-width: 767px) {
+  .custom-section-mobile {
+    display: block;
+  }
+}
+/* ریسپانسیو موبایل و تبلت */
+@media (max-width: 768px) {
+  .gallery-item {
+    width: 83vw;  /* کارت‌ها عرض بیشتری در موبایل */
+  }
+  .text-block h3 {
+    font-size: 1.1rem;
+  }
+  .text-block p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    width: 83vw;
+  }
+  .text-block h3 {
+    font-size: 1rem;
+  }
+  .text-block p {
+    font-size: 0.85rem;
+  }
+}
+/* موبایل کوچک: 0 تا 767px */
+@media (max-width: 767px) {
+  .footer-column {
+    width: 100%;
+    margin-bottom: 0px;
+   
+  }
+
+  .footer-column h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0px 0;
+    position: relative;
+
+  }
+
+  .footer-column h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px solid #ccc;
+    z-index: 0;
+  }
+
+  .footer-column h4 span.accordion-toggle,
+  .footer-column h4 span.title-text {
+    position: relative;
+    z-index: 1;
+    background: #e6e6e6;
+    padding: 0 6px;
+  }
+
+  .footer-column ul.accordion-list {
+    display: none;
+    flex-direction: column;
+    margin: 5px 0 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .footer-column ul.accordion-list.active {
+    display: flex;
+  }
+
+  .footer-column ul.accordion-list li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 5px 0;
+  }
+  .accordion-toggle{margin-right: -360px;}
+  .footer-currency{position: relative; right: 80px; bottom: 30px;}
+  .card{position: relative; top: 30px; left: 30px;}
+}
+
+/* تبلت: 768px تا 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-column {
+    width: 100%;
+    margin-bottom: 1px;
+  }
+
+  .footer-column h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    padding: px 0;
+    position: relative;
+  }
+
+  .footer-column h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px solid #ccc;
+    z-index: 0;
+  }
+
+  .footer-column h4 span.accordion-toggle,
+  .footer-column h4 span.title-text {
+    position: relative;
+    z-index: 1;
+    background: #e6e6e6;
+    padding: 0 8px;
+  }
+ .accordion-toggle{margin-right: -770px;}
+  .footer-column ul.accordion-list {
+    display: none;
+    flex-direction: column;
+    margin: 5px 0 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .footer-column ul.accordion-list.active {
+    display: flex;
+  }
+
+  .footer-column ul.accordion-list li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  .accordion-toggle{margin-right: -360px;}
+  .footer-currency{position: relative; right: 240px; bottom: 30px;}
+  .card{position: relative; top: 30px; left: 360px;}
+  .footer-input{position: relative; right: -330px;}
+}
+
+/* دسکتاپ: 1025px به بالا */
+@media (min-width: 1025px) {
+  .footer-column h4 span.accordion-toggle {
+    display: none !important;
+  }
+ 
 }

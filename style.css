@@ -3284,7 +3284,7 @@ white-space: nowrap;
   }
   .accordion-toggle{margin-right: -360px;}
   .footer-currency{position: relative; right: 80px; bottom: 30px;}
-  .card{position: relative; top: 30px; left: 20px;}
+  .card{position: relative; top: 30px; left: 0px;}
     .footer-input{position: relative; right: -10px;}
 }
 

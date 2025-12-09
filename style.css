@@ -563,7 +563,7 @@ margin-top: -280px;
 .cart-count {
   position: absolute;
   top: -6px;
-  right: -10px;
+  right: -150px;
 
   color: white;
   font-size: 10px;
@@ -2179,7 +2179,7 @@ margin-top: -40px;
   .nav-right {
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: -14px !important;
 
     margin-left: auto !important;
     margin-right: 0 !important;
@@ -2326,7 +2326,7 @@ margin-top: -40px;
   padding: 10px;
   position: fixed;
   top: 45px;
-  left: 15px;
+
   z-index: 1001;
 }
 
@@ -2812,7 +2812,7 @@ margin-top: -40px;
   }
   .carousel-viewport {
     display: flex !important;
-    gap: 18px;
+    gap:4px;
   }
 
   .product-card {
@@ -2824,7 +2824,7 @@ margin-top: -40px;
   .carousel-btn {
   display: inline-block !important;
 
-  margin: -70px -20px 30px 0px;   /* این خط فاصله بین فلش‌ها را زیاد می‌کند */
+  margin: -70px -1px 30px 0px;   /* این خط فاصله بین فلش‌ها را زیاد می‌کند */
 }
 
  .product-info {
@@ -3286,7 +3286,8 @@ white-space: nowrap;
   }
   .accordion-toggle{margin-right: -360px;}
   .footer-currency{position: relative; right: 80px; bottom: 30px;}
-  .card{position: relative; top: 30px; left: 30px;}
+  .card{position: relative; top: 30px; left: 20px;}
+    .footer-input{position: relative; right: -30px;}
 }
 
 /* تبلت: 768px تا 1024px */
@@ -3344,7 +3345,7 @@ white-space: nowrap;
   }
   .accordion-toggle{margin-right: -360px;}
   .footer-currency{position: relative; right: 240px; bottom: 30px;}
-  .card{position: relative; top: 30px; left: 360px;}
+  .card{position: relative; top: 30px; left: 30px;}
   .footer-input{position: relative; right: -330px;}
 }
 

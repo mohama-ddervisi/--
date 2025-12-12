@@ -210,7 +210,7 @@ margin-right: 39px;
 }
 .menu-col ul li {
   white-space: nowrap;
-  margin-bottom: 20px; /* فاصله بین هر آیتم */
+  margin-bottom:20px; /* فاصله بین هر آیتم */
 }
 
 @media (min-width: 1800px) {
@@ -509,7 +509,7 @@ margin-top: -280px;
 /* لوگو وسطی */
 .navbar-lower {
   position: fixed;
-  top: 50px;
+  top: 37px;
   left: 0;
   width: 100%;
   display: flex;
@@ -526,14 +526,14 @@ margin-top: -280px;
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 35px;
-  padding-left: 20px;
+  gap: 25px;
+  padding-left: 0px;
 }
 
 /* لوگو وسط */
 .nav-center {
   position: absolute;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
 }
 
@@ -548,9 +548,9 @@ margin-top: -280px;
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 18px;       /* فاصله بین آیکون‌ها */
+  gap: 10px;       /* فاصله بین آیکون‌ها */
   /* right: 270px; ← حذف شد */
-  padding-right: 95px; /* فاصله از لبه صفحه کمتر کن، مثلا 50px */
+  padding-right: 38px; /* فاصله از لبه صفحه کمتر کن، مثلا 50px */
 }
 
 
@@ -563,7 +563,7 @@ margin-top: -280px;
 .cart-count {
   position: absolute;
   top: -6px;
-  right: -150px;
+  right: -0px;
 
   color: white;
   font-size: 10px;
@@ -814,7 +814,9 @@ cursor: pointer;
   background: white;
   z-index: 9999;
   overflow-x: hidden;
-  display: none;          /* فقط وقتی هاور بشه نمایش داده بشه */
+  display: none; 
+  top:126px;
+           /* فقط وقتی هاور بشه نمایش داده بشه */
 }
 
 /* گالری‌های داخل باکس‌ها */
@@ -1129,7 +1131,7 @@ color: white;
 .hero-button-gruop{
   display: flex;
   gap: 30px;
-   margin-left: 140px;
+   margin-left: 80px;
    position: relative;
    bottom: 30px;
 }
@@ -2143,7 +2145,8 @@ margin-top: -40px;
   }
 }
 /* ======================= REAL MOBILE MODE ======================= */
-@media (max-width: 1250px) {
+@media (max-width: 968px) {
+
 
   /* نوار اصلی کاملاً ریست شود */
   .navbar-lower {
@@ -2366,7 +2369,8 @@ margin-top: -40px;
 }
 
 /* ریسپانسیو: فقط موبایل و تبلت */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+
   .hamburger {
     display: block; /* همبرگر ظاهر می‌شود */
   }
@@ -2378,7 +2382,8 @@ margin-top: -40px;
 }
 
 /* فقط موبایل و تبلت */
-@media (max-width: 1250px) {
+@media (max-width: 968px) {
+
   .hamburger {
     display: block;
     font-size: 32px;
@@ -2812,7 +2817,7 @@ margin-top: -40px;
   }
   .carousel-viewport {
     display: flex !important;
-    gap:4px;
+   gap: 2px;
   }
 
   .product-card {
@@ -2836,7 +2841,7 @@ margin-top: -40px;
   margin-top:55px;   /* به اندازه ارتفاع تاپ‌بار */
 }
 /* --- ریسپانسیو برای موبایل و تبلت (تا عرض 900px) --- */
-@media (max-width: 900px) {
+@media (max-width: 968px) {
 
   .hero {
     position: relative;
@@ -2866,7 +2871,7 @@ margin-top: -40px;
 
   .text-part {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: -15px;
     top: 0 !important;
   }
 
@@ -2876,7 +2881,7 @@ margin-top: -40px;
     flex-direction: column;   /* دکمه‌ها زیر هم */
     align-items: center;
     gap: 15px; 
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   .hero-button {
@@ -2953,7 +2958,7 @@ margin-top: -40px;
   .text-part-1 {
     font-size: 20px;
     position: static;
-    margin-bottom: 10px;
+    margin-bottom:-15px;
   }
 
   .text-Releases {
@@ -2989,7 +2994,7 @@ margin-top: -40px;
 }
 
 /* نمایش روی موبایل و تبلت */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .custom-section {
     display: block; 
   }
@@ -3068,6 +3073,7 @@ margin-top: -40px;
 
   .video-container {
     order: 1; /* ویدیو بالا قرار می‌گیره */
+  margin-right: 26px;
   }
 
   /* مخفی کردن دکمه دوم */
@@ -3347,10 +3353,4 @@ white-space: nowrap;
   .footer-input{position: relative; right: -330px;}
 }
 
-/* دسکتاپ: 1025px به بالا */
-@media (min-width: 1025px) {
-  .footer-column h4 span.accordion-toggle {
-    display: none !important;
-  }
- 
-}
+

@@ -527,7 +527,8 @@ margin-top: -280px;
   display: flex;
   align-items: center;
   gap: 25px;
-  padding-left: 0px;
+  padding-left: 22px;
+  padding-top: 10px;
 }
 
 /* لوگو وسط */
@@ -535,6 +536,7 @@ margin-top: -280px;
   position: absolute;
   left: 55%;
   transform: translateX(-50%);
+  padding-top: 10px;
 }
 
 .logo {
@@ -550,7 +552,8 @@ margin-top: -280px;
   align-items: center;
   gap: 10px;       /* فاصله بین آیکون‌ها */
   /* right: 270px; ← حذف شد */
-  padding-right: 38px; /* فاصله از لبه صفحه کمتر کن، مثلا 50px */
+  padding-right: 52px; /* فاصله از لبه صفحه کمتر کن، مثلا 50px */
+padding-top: 10px;
 }
 
 

@@ -2837,6 +2837,7 @@ margin-top: -40px;
 /* --- ریسپانسیو برای موبایل و تبلت (تا عرض 900px) --- */
 @media (max-width: 968px) {
 
+
   .hero {
     position: relative;
     height: 650px; /* عکس بلندتر */

@@ -2145,7 +2145,7 @@ margin-top: -40px;
   /* نوار اصلی کاملاً ریست شود */
   .navbar-lower {
     position: fixed !important;
-    top: 50px !important;
+    top:48px !important;
     width: 100% !important;
 
     display: flex !important;
